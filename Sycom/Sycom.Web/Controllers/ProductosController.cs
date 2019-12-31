@@ -13,7 +13,7 @@ namespace Sycom.Web.Controllers
         public ActionResult Index()
         {
             var productosBL = new ProductosBL();
-            var ListadeProductos = productosBL.ObtenerProductos();
+            var ListadeProductos = productosBL.ObtenerProducto();
 
             return View(ListadeProductos);
         }

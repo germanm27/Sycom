@@ -17,7 +17,7 @@ namespace Sycom.Win
         {
             InitializeComponent();
             var productosBL = new ProductosBL();
-            var ListadeProductos = productosBL.ObtenerProductos();
+            var ListadeProductos = productosBL.ObtenerProducto();
 
             listadeProductosBindingSource.DataSource = ListadeProductos;
         }
