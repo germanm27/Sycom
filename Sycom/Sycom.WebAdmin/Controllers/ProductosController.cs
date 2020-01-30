@@ -42,7 +42,7 @@ namespace Sycom.WebAdmin.Controllers
             {
                 if (producto.CategoriaId == 0)
                 {
-                    ModelState.AddModelError("CategoriaId", "Seleccione una categoria");
+                    ModelState.AddModelError("Categoria", "Seleccione una categoria");
                     return View(producto);
                 }
 
@@ -52,6 +52,7 @@ namespace Sycom.WebAdmin.Controllers
                 }
 
                 _productosBL.GuardarProducto(producto);
+
                 return RedirectToAction("Index");
             }
 
@@ -73,7 +74,7 @@ namespace Sycom.WebAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar(Producto producto)
+        public ActionResult Editar(Producto producto, HttpPostedFileBase imagen)
         {
             if (ModelState.IsValid)
             {
@@ -82,6 +83,12 @@ namespace Sycom.WebAdmin.Controllers
                     ModelState.AddModelError("CategoriaId", "Seleccione una categoria");
                     return View(producto);
                 }
+
+                if(imagen != null)
+                {
+                    producto.UrlImagen = GuardarImagen(imagen);
+                }
+
                 _productosBL.GuardarProducto(producto);
                 return RedirectToAction("Index");
             }

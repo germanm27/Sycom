@@ -10,7 +10,8 @@ namespace Sycom.BL
 {
     public class Contexto: DbContext
     {
-        public Contexto(): base(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDBFilename=C:\Users\gfmen\Desktop\Sycom\SycomDB.mdf")
+        public Contexto(): base(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDBFilename=" +
+            Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Sycom.mdf")
         {
 
         }
